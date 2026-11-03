@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Rasya Ardiansyah</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #081426;
+    color: white;
+    line-height: 1.7;
+}
+
+:root {
+    --blue: #38bdf8;
+    --dark: #081426;
+    --card: #12243d;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(8,20,38,.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid #ffffff15;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--blue);
+}
+
+section {
+    padding: 100px 10%;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero h3 {
+    color: var(--blue);
+    font-size: 22px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+.hero h2 {
+    font-size: 25px;
+    color: #b8c8dc;
+}
+
+.hero p {
+    color: #b8c8dc;
+    margin-top: 15px;
+    max-width: 550px;
+}
+
+.hero-img {
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    border: 5px solid var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #142b49;
+    font-size: 100px;
+    box-shadow: 0 0 35px #38bdf855;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 28px;
+    background: var(--blue);
+    color: #081426;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    background: white;
+}
+
+.title {
+    text-align: center;
+    font-size: 34px;
+    color: var(--blue);
+    margin-bottom: 40px;
+}
+
+.about {
+    text-align: center;
+}
+
+.about p {
+    max-width: 800px;
+    margin: auto;
+    color: #c3d1e2;
+    font-size: 17px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #ffffff12;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--blue);
+    box-shadow: 0 8px 25px #0004;
+}
+
+.card h3 {
+    color: var(--blue);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #c3d1e2;
+}
+
+.icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact p {
+    margin: 10px;
+    color: #c3d1e2;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #050e1c;
+    color: #91a4bb;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 25px;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+@media(max-width: 768px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: #10223b;
+        padding: 20px;
+    }
+
+    nav.active {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        justify-content: center;
+        padding-top: 130px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-img {
+        width: 200px;
+        height: 200px;
+        font-size: 75px;
+    }
+
+    section {
+        padding: 85px 7%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">RASYA.</div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <nav id="nav">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#about" onclick="closeMenu()">Tentang</a>
+        <a href="#biodata" onclick="closeMenu()">Biodata</a>
+        <a href="#hobi" onclick="closeMenu()">Hobi</a>
+        <a href="#pendidikan" onclick="closeMenu()">Pendidikan</a>
+        <a href="#cita" onclick="closeMenu()">Cita-cita</a>
+        <a href="#kontak" onclick="closeMenu()">Kontak</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+
+    <div>
+        <h3>HALO, SELAMAT DATANG!</h3>
+
+        <h1>Rasya Ardiansyah</h1>
+
+        <h2>Pelajar | Future Architect</h2>
+
+        <p>
+            Selamat datang di website profil pribadi saya.
+            Saya adalah seorang pelajar yang memiliki semangat
+            untuk belajar, berkembang, dan meraih cita-cita.
+        </p>
+
+        <a href="#about" class="btn">Kenali Saya</a>
+    </div>
+
+    <div class="hero-img">👨🏻‍🎓</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+
+    <h2 class="title">Tentang Saya</h2>
+
+    <p>
+        Perkenalkan, nama saya Rasya Ardiansyah.
+        Saya merupakan siswa SMA 19 Bandung.
+        Saya memiliki ketertarikan pada dunia teknologi,
+        kreativitas, dan desain bangunan.
+        Saya senang bermain game dan mendengarkan musik
+        di waktu luang. Saya juga memiliki impian untuk
+        menjadi seorang arsitek di masa depan.
+    </p>
+
+</section>
+
+<!-- BIODATA -->
+<section id="biodata">
+
+    <h2 class="title">Biodata Diri</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="icon">👤</div>
+            <h3>Nama Lengkap</h3>
+            <p>Rasya Ardiansyah</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏫</div>
+            <h3>Sekolah</h3>
+            <p>SMA 19 Bandung</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📚</div>
+            <h3>Kelas</h3>
+            <p>Kelas 17 (perlu dikonfirmasi)</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎯</div>
+            <h3>Cita-cita</h3>
+            <p>Menjadi seorang arsitek</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- HOBI -->
+<section id="hobi">
+
+    <h2 class="title">Hobi & Minat</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="icon">🎮</div>
+            <h3>Bermain Game</h3>
+            <p>
+                Saya suka bermain game untuk hiburan
+                dan mengisi waktu luang.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎧</div>
+            <h3>Mendengarkan Musik</h3>
+            <p>
+                Saya senang mendengarkan musik
+                untuk menemani aktivitas sehari-hari.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PENDIDIKAN -->
+<section id="pendidikan">
+
+    <h2 class="title">Pendidikan</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="icon">🎓</div>
+            <h3>Sekolah Saat Ini</h3>
+            <p>SMA 19 Bandung</p>
+            <p>Jenjang: Sekolah Menengah Atas</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CITA-CITA -->
+<section id="cita">
+
+    <h2 class="title">Cita-Cita Saya</h2>
+
+    <div class="card" style="text-align:center">
+
+        <div class="icon">🏛️</div>
+
+        <h3>Menjadi Arsitek</h3>
+
+        <p>
+            Saya bercita-cita menjadi seorang arsitek.
+            Saya ingin merancang dan membangun berbagai
+            bangunan yang indah, nyaman, kreatif, dan
+            bermanfaat bagi banyak orang.
+            Saya akan terus belajar dan berusaha
+            untuk mewujudkan impian tersebut.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- KONTAK -->
+<section id="kontak" class="contact">
+
+    <h2 class="title">Hubungi Saya</h2>
+
+    <div class="card">
+
+        <p>👤 Nama: Rasya Ardiansyah</p>
+        <p>🏫 Sekolah: SMA 19 Bandung</p>
+
+        <button class="btn" onclick="salam()">
+            Klik Di Sini!
+        </button>
+
+        <p id="pesan"></p>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Rasya Ardiansyah</p>
+    <p>My Personal Website | Dibuat dengan HTML, CSS & JavaScript</p>
+</footer>
+
+<script>
+
+function toggleMenu() {
+    document.getElementById("nav").classList.toggle("active");
+}
+
+function closeMenu() {
+    document.getElementById("nav").classList.remove("active");
+}
+
+function salam() {
+    document.getElementById("pesan").innerHTML =
+    "Terima kasih sudah mengunjungi website profil saya! 😊";
+}
+
+</script>
+
+</body>
+  </html>
+  
